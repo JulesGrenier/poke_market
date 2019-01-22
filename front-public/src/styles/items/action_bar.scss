@@ -1,0 +1,53 @@
+@import '../colors.scss';
+
+.action-bar{
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: $red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $text_white;
+  font-weight: 600;
+  border-radius: .25rem;
+  box-shadow: 0 0 .25rem rgba($black, .5);
+
+  span{
+    display: inline-block!important;
+    margin-bottom: 0!important;
+    margin-right: 1rem; 
+  }
+
+  .item-cost{
+    
+    .icon{
+      margin-left: .25rem;
+    }
+
+  }
+
+  .item-stock{
+    
+
+    .sold-out{
+      text-transform: uppercase;
+    }
+  }
+
+
+  .add-to-cart{
+    margin-left: auto;
+
+    input{
+      padding: 0 .5rem!important;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+}

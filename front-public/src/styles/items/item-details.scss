@@ -1,0 +1,35 @@
+@import '../colors.scss';
+
+.item-details{
+  padding-top: 5rem; 
+  padding-bottom: 5rem;
+
+  .header{
+    text-align: center;
+
+    .item-sprite{
+      width: 50px;
+      display: inline-block;
+    }
+  
+    .item-name{
+      margin-top: 0;
+      margin-bottom: 5rem;
+      color: $text_black;
+    }
+  
+  }
+
+  .detail{
+    margin-bottom: 3rem;
+  }
+
+  .label{
+    display: inline-block;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+    color: inherit;
+  }
+
+}

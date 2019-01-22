@@ -1,0 +1,18 @@
+@import '../colors.scss';
+
+.filter-bar{
+  text-align: right;
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+
+  .action{
+    width: 100%;
+
+    .selection.dropdown{
+      width: 120px;
+      background: rgba($black, .05)!important;
+    }
+
+  }
+
+}
