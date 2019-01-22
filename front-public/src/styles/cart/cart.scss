@@ -1,0 +1,100 @@
+@import '../colors.scss';
+
+#cart{
+
+  h2{
+    color: $red;
+    font-size: 2.5rem;
+    border-bottom: 4px solid;
+    padding-bottom: .5rem;
+    margin-bottom: 4rem;
+
+    .icon{
+      margin-right: .75rem;
+    }
+  }
+
+  .cart-items{
+
+    .cart-item{
+      background: rgba($black, .05);
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: .25rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 0 .25rem rgba($black, .2);
+
+      .item-sprite{
+        vertical-align: middle;
+      }
+
+      span{
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: .5rem;
+      }
+
+      a{
+        color: $text_red;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+
+      .item-cost{
+        position: relative;
+
+        .icon{
+          margin-left: .5rem;
+        }
+
+        &:after{
+          content: 'per unit';
+          text-transform: uppercase;
+          font-size: .6rem;
+          font-weight: 600;
+          position: absolute;
+          top: 100%;
+          left: 0;
+        }
+
+      }
+
+      .actions{
+        text-align: right;
+
+        span{
+          padding: .15rem .25rem;
+          border-radius: .25rem;
+          cursor: pointer;
+          
+          &.edit{
+            background: rgba($blue, .85);
+            color: $white;
+
+            &:hover{
+              background: $blue;
+              box-shadow: 0 0 .25rem rgba($black, .2);
+            }
+          }
+  
+          &.cancel{
+            background: rgba($red, .85);
+            color: $white;
+
+            &:hover{
+              background: $red;
+              box-shadow: 0 0 .25rem rgba($black, .2);
+            }
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

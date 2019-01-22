@@ -24,21 +24,29 @@ const Navbar = () => {
             Browse
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/cart"
-            className="nav-link"
-          >
-            <Icon name="shopping cart" />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/profile"
-            className="nav-link"
-          >
-            <Icon name="user" />
-          </NavLink>
+        
+        <li className="user-part">
+          <span className="wallet-content">
+            1000 <Icon name="money bill alternate outline" />
+          </span>
+          <ul>
+            <li>
+              <NavLink
+                to="/cart"
+                className="nav-link"
+              >
+                <Icon name="shopping cart" />
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/profile"
+                className="nav-link"
+              >
+                <Icon name="user" />
+              </NavLink>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
