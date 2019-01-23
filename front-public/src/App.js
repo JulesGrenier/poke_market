@@ -9,6 +9,8 @@ import ListContainer from './containers/items/ListContainer';
 import ItemDetailsContainer from './containers/items/ItemDetailsContainer';
 import CartContainer from './containers/cart/CartContainer';
 import ProfileContainer from './containers/profile/ProfileContainer';
+import LoginContainer from './containers/user/LoginContainer';
+import RegisterContainer from './containers/user/RegisterContainer';
 import Error404Container from './containers/error404/Error404Container';
 import Navbar from './components/navbar/Navbar';
 
@@ -26,6 +28,8 @@ class App extends Component {
               <Route exact path="/browse/item/:name" render={(props) => <ItemDetailsContainer {...props} />} />
               <Route exact path="/cart" render={(props) => <CartContainer {...props} />} />
               <Route exact path="/profile" render={(props) => <ProfileContainer {...props} />} />
+              <Route exact path="/login" render={(props) => <LoginContainer {...props} />} />
+              <Route exact path="/register" render={(props) => <RegisterContainer {...props} />} />
               <Route path="/" render={(props) => <Error404Container {...props} />} />
             </Switch>
           </main>

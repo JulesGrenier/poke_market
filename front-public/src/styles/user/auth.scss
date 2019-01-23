@@ -1,0 +1,42 @@
+@import '../colors.scss';
+
+#login, #register{
+
+  h2{
+    color: $red;
+    font-size: 2.5rem;
+    border-bottom: 4px solid;
+    padding-bottom: .5rem;
+    margin-bottom: 4rem;
+  }
+
+  label{
+    color: $text_black;
+  }
+
+  input{
+    border: none;
+    color: $text_black;
+    box-shadow: 0 0 .25rem rgba($black, .2);
+  }
+
+  button{
+    width: 100%;
+    box-shadow: 0 0 .25rem rgba($black, .2);
+  }
+
+  .actions{
+    text-align: center;
+    margin: 1rem 0;
+
+    a{
+      color: $text_black;
+      display: inline-block;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  
+}

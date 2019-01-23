@@ -24,6 +24,14 @@ const Navbar = () => {
             Browse
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/login"
+            className="nav-link btn"
+          >
+            Login
+          </NavLink>
+        </li>
         
         <li className="user-part">
           <span className="wallet-content">

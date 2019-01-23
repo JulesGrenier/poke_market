@@ -45,19 +45,36 @@
         letter-spacing: 1px;
         border-radius: .5rem;
 
+        &.btn{
+          background: rgba($red, .8);
+
+          &:hover,&.active{
+            background: $red;
+            color: $text_white;
+          }
+        }
+
         &.active{
           color: $red;
           background: rgba($white, .05);
         }
 
         &:hover{
-          background: rgba($white, .05);
+          background: rgba($white, .1);
         }
 
         &:focus{
           color: rgba($red, .9);
           background: rgba($white, .05);
         }
+      }
+    }
+
+    .link-group{
+
+      a{
+        display: block;
+        color: $text_black;
       }
     }
 
