@@ -1,0 +1,121 @@
+@import '../colors.scss';
+
+#profile{
+
+  h2{
+    color: $red;
+    font-size: 2.5rem;
+    border-bottom: 4px solid;
+    padding-bottom: .5rem;
+    margin-bottom: 4rem;
+  }
+
+  h3{
+    color: $text_black;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid;
+  }
+
+  .cart-link{
+    display: inline-block;
+    background: rgba($red, .9);
+    color: $white;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 .25rem rgba($black, .2);
+    padding: .5rem 1rem;
+
+    .icon{
+      margin-right: .5rem;
+    }
+
+    &:hover{
+      box-shadow: 0 0 .5rem rgba($black, .5);
+      background: $red;
+    }
+  }
+
+  .wallet{
+
+    
+    .wallet-content{
+      display: inline-block;
+      background: rgba($red, .9);
+      color: $white;
+      border-radius: .25rem;
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+      box-shadow: 0 0 .25rem rgba($black, .2);
+      padding: .5rem 1rem;
+
+      & > .icon{
+        margin: 0 .5rem;
+      }
+    }
+
+    .add-money{
+      cursor: pointer;
+      background: rgba($blue, .9);
+      color: $white;
+      padding: .5rem .75rem;
+      border-radius: .25rem;
+      box-shadow: 0 0 .25rem rgba($black, .2);
+
+      .icon.add{
+        color: $text_black;
+      }
+
+      &:hover{
+        background: rgba($blue, .95);
+        box-shadow: 0 0 .5rem rgba($black, .5);
+      }
+    }
+  }
+
+  .order-history{
+    margin-top: 2em;
+
+    .history{
+      list-style-type: none;
+      padding: 0;
+      color: $text_black;
+
+      .order{
+        display: block;
+        background: rgba($black, .1);
+        border-radius: .25rem;
+        box-shadow: 0 0 .25rem rgba($black, .2);
+        margin-bottom: 1rem;
+
+        a{
+          padding: .5rem 1rem;
+          display: block;
+          color: $text_black;
+        }
+
+        &:hover{
+          box-shadow: 0 0 .5rem rgba($black, .3);
+        }
+      }
+    }
+  }
+
+  label{
+    color: $text_black;
+  }
+
+  input{
+    border: none;
+    box-shadow: 0 0 .25rem rgba($black, .2);
+    color: $text_black;
+    
+    &:read-only{
+      background: rgba($black, .05);
+    }
+  }
+
+  button{
+    box-shadow: 0 0 .25rem rgba($black, .2);
+  }
+
+}
