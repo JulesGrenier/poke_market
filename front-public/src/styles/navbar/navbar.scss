@@ -10,6 +10,23 @@
   z-index: 10;
   box-shadow: 0 0 .5rem rgba($black, .7);
 
+  .menu-toggler{
+    text-transform: uppercase;
+    display: none;
+    color: $text_white;
+    cursor: pointer;
+    text-align: center;
+    padding: .5rem .75rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+
+    &:hover{      
+      color: $red;
+      background: rgba($white, .05);
+    }
+
+  }
+
   .navbar-nav, ul{
     list-style-type: none;
     padding: 0;
@@ -39,14 +56,21 @@
       margin: 0 .25rem;
 
       .nav-link{
+        display: block;
+        text-align: center;
         color: $text_white;
         font-size: 1.2rem;
         padding: .5rem .75rem;
         letter-spacing: 1px;
         border-radius: .5rem;
 
+        .icon{
+          margin-right: .5rem;
+        }
+
         &.btn{
           background: rgba($red, .8);
+          cursor: pointer;
 
           &:hover,&.active{
             background: $red;
@@ -76,6 +100,55 @@
         display: block;
         color: $text_black;
       }
+    }
+
+  }
+
+  @media screen and (max-width: 768px){
+
+    .menu-toggler{
+      display: block;
+    }
+    
+    .navbar-nav{
+      flex-direction: column;
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+
+      &.show{
+        visibility: visible;
+        height: unset;
+        margin: unset;
+        margin-top: 1rem;
+        border-top: 1px solid;
+        padding-top: .5rem;
+      }
+
+      li{
+        width: 100%;
+        margin: 0;
+
+        .nav-link{
+          width: 100%;
+          margin-bottom: .5rem;
+        }
+      }
+
+      .user-part{
+        margin: 0;
+        
+        ul{
+          display: flex;
+          flex-direction: column!important;
+          width: 100%;
+        }
+
+        .wallet-content{
+          display: none!important;
+        }
+      }
+
     }
 
   }

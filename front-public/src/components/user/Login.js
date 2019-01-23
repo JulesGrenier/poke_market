@@ -9,7 +9,7 @@ const Login = () => {
       <Container text textAlign="center">
         <h2>Login</h2>
         <Grid centered>
-          <Grid.Column width={7}>
+          <Grid.Column mobile={14} tablet={8} computer={7}>
             <Form>
               <Form.Field>
                 <label>Email</label>

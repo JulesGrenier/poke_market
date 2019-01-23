@@ -9,7 +9,7 @@ const Register = () => {
       <Container text textAlign="center">
         <h2>Register</h2>
         <Grid centered>
-          <Grid.Column width={7}>
+          <Grid.Column mobile={14} tablet={8} computer={7}>
             <Form>
               <Form.Field>
                 <label>First Name</label>
