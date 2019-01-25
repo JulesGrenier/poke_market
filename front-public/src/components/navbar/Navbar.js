@@ -46,9 +46,6 @@ const Navbar = () => {
         </li>
         
         <li className="user-part">
-          <span className="wallet-content">
-            1000 <Icon name="money bill alternate outline" />
-          </span>
           <ul>
             <li>
               <NavLink
