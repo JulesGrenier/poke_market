@@ -11,18 +11,29 @@
   }
 
   label{
-    color: $text_black;
+    color: $black;
   }
 
   input{
     border: none;
-    color: $text_black;
+    color: $black;
     box-shadow: 0 0 .25rem rgba($black, .2);
   }
 
   button{
     width: 100%;
     box-shadow: 0 0 .25rem rgba($black, .2);
+    background: rgba($blue, .8);
+    color: $white;
+
+    &:hover{
+      box-shadow: 0 0 .25rem rgba($black, .5);
+    }
+
+    &:focus{
+      box-shadow: 0 0 .25rem rgba($black, .7);
+      background: $blue;
+    }
   }
 
   .actions{
@@ -30,7 +41,7 @@
     margin: 1rem 0;
 
     a{
-      color: $text_black;
+      color: $black;
       display: inline-block;
 
       &:hover{

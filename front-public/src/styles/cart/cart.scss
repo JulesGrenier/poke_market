@@ -17,7 +17,7 @@
   .cart-items{
 
     .cart-item{
-      background: rgba($black, .05);
+      background: $white;
       padding-left: 1rem;
       padding-right: 1rem;
       border-radius: .25rem;
@@ -35,7 +35,7 @@
       }
 
       a{
-        color: $text_red;
+        color: $red;
 
         &:hover{
           text-decoration: underline;

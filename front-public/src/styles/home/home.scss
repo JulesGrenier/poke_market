@@ -31,7 +31,7 @@
 
   h1{
     font-size: 3rem;
-    color: $text_red;
+    color: $red;
     margin-bottom: 4rem;
     text-shadow: 0 0 .25rem $black;
     text-transform: uppercase;
@@ -39,13 +39,13 @@
 
   p{
     margin-bottom: 4rem;
-    color: $text_white;
+    color: $white;
     font-size: 1.8rem;
   }
 
   button{
     background: rgba($red, .9);
-    color: $text_white;
+    color: $white;
     font-size: 1.4rem;
     box-shadow: 0 0 .25rem $black;
     letter-spacing: 1px;

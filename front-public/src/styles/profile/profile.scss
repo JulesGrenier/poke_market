@@ -11,7 +11,7 @@
   }
 
   h3{
-    color: $text_black;
+    color: $black;
     padding-bottom: .5rem;
     border-bottom: 2px solid;
   }
@@ -62,7 +62,7 @@
       box-shadow: 0 0 .25rem rgba($black, .2);
 
       .icon.add{
-        color: $text_black;
+        color: $black;
       }
 
       &:hover{
@@ -78,11 +78,11 @@
     .history{
       list-style-type: none;
       padding: 0;
-      color: $text_black;
+      color: $black;
 
       .order{
         display: block;
-        background: rgba($black, .1);
+        background: $white;
         border-radius: .25rem;
         box-shadow: 0 0 .25rem rgba($black, .2);
         margin-bottom: 1rem;
@@ -90,7 +90,7 @@
         a{
           padding: .5rem 1rem;
           display: block;
-          color: $text_black;
+          color: $black;
         }
 
         &:hover{
@@ -101,13 +101,13 @@
   }
 
   label{
-    color: $text_black;
+    color: $black;
   }
 
   input{
     border: none;
     box-shadow: 0 0 .25rem rgba($black, .2);
-    color: $text_black;
+    color: $black;
     
     &:read-only{
       background: rgba($black, .05);

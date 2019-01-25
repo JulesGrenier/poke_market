@@ -13,7 +13,7 @@
   .menu-toggler{
     text-transform: uppercase;
     display: none;
-    color: $text_white;
+    color: $white;
     cursor: pointer;
     text-align: center;
     padding: .5rem .75rem;
@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    color: $text_white;
+    color: $white;
     align-items: center;
 
     .user-part{
@@ -42,13 +42,6 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-
-      .wallet-content{
-        display: inline-block;
-        letter-spacing: 1px;
-        margin: 0 .25rem;
-        padding: .5rem .75rem;
-      }
     }
 
 
@@ -58,7 +51,7 @@
       .nav-link{
         display: block;
         text-align: center;
-        color: $text_white;
+        color: $white;
         font-size: 1.2rem;
         padding: .5rem .75rem;
         letter-spacing: 1px;
@@ -74,7 +67,7 @@
 
           &:hover,&.active{
             background: $red;
-            color: $text_white;
+            color: $white;
           }
         }
 
@@ -98,7 +91,7 @@
 
       a{
         display: block;
-        color: $text_black;
+        color: $black;
       }
     }
 
@@ -142,10 +135,6 @@
           display: flex;
           flex-direction: column!important;
           width: 100%;
-        }
-
-        .wallet-content{
-          display: none!important;
         }
       }
 
