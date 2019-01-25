@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 
@@ -11,30 +11,35 @@ const Item = ({ item }) => {
   } = item;
 
   let formatedName;
-  if(name) formatedName = name.split('-').map(part => part.replace(part.charAt(0), part.charAt(0).toUpperCase())).join(' ');
+  if (name) formatedName = name.split('-').map(part => part.replace(part.charAt(0), part.charAt(0).toUpperCase())).join(' ');
 
   return (
     <div className="product">
       {
         sprites &&
-        <Link to={`/browse/item/${name}`}>
+        <Fragment>
           <img
             src={sprites.default}
             alt={formatedName}
             className="item-sprite"
           />
-          <h3 className="item-name">{formatedName}</h3>
+          <Link to={`/browse/item/${name}`}>
+            <h3 className="item-name">{formatedName}</h3>
+          </Link>
           <span className="item-cost">
             {
               cost > 0
-              ? <span>
+                ? <span>
                   {`${cost} `}
                   <Icon name="money bill alternate outline" />
                 </span>
-              : <span className="sold-out">Sold out</span>
+                : <span className="sold-out">Sold out</span>
             }
           </span>
-        </Link>
+          <div className="add-to-cart">
+            <Icon name="add to cart" />
+          </div>
+        </Fragment>
       }
     </div>
   )
