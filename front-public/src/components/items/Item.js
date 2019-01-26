@@ -30,8 +30,8 @@ const Item = ({ item }) => {
             {
               cost > 0
                 ? <span>
-                  {`${cost} `}
-                  <Icon name="money bill alternate outline" />
+                  {cost}
+                  <img src={require("../../images/pokecoin.svg")} alt="pokecoin" className="pokecoin"/>
                 </span>
                 : <span className="sold-out">Sold out</span>
             }

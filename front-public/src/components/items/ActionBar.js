@@ -10,7 +10,7 @@ const ActionBar = ({ stock, cost }) => {
           cost > 0 &&
           <span>
             Cost: {cost}
-            <Icon name="money bill alternate outline" />
+            <img src={require("../../images/pokecoin.svg")} alt="pokecoin" className="pokecoin"/>
           </span>
         }
       </div>

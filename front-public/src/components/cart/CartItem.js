@@ -30,7 +30,7 @@ const CartItem = ({ sprite, name, formatedName, cost, quantity }) => {
           <Grid.Column width={3}>
             <span className="item-cost">
               {cost}
-              <Icon name="money bill alternate outline" />
+              <img src={require("../../images/pokecoin.svg")} alt="pokecoin" className="pokecoin"/>
             </span>
           </Grid.Column>
           <Grid.Column width={7}>
