@@ -1,45 +1,82 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { getItems } from '../../redux/actions/index';
 import List from '../../components/items/List';
 
 class ListContainer extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       items: {}
     };
+
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
-  componentWillMount(){
-    document.title = "Browse";
-    const { pageId } = this.props.match.params;
-    const pageToGet = pageId ? pageId : 1;
-    this.props.getItems(pageToGet);
+  componentWillMount() {
+    document.title = 'Browse';
+
+    const {
+      match,
+      getItems
+    } = this.props;
+
+    const { pageId } = match.params;
+    let pageToGet;
+    if (!pageId) {
+      pageToGet = 1;
+    } else {
+      pageToGet = pageId;
+    }
+    getItems(pageToGet);
   }
 
-  componentWillReceiveProps(newProps){
+  componentWillReceiveProps(newProps) {
     this.setState({
       items: newProps.items
     });
   }
 
-  render() {
+  handlePageChange(page) {
+    this.setState({ items: {} });
+    const { getItems } = this.props;
+    getItems(page);
+  }
 
+  render() {
     const { items } = this.state;
-    const { pageId } = this.props.match.params;
-    const currentPage = pageId ? pageId : 1;
+    const { match } = this.props;
+    const { pageId } = match.params;
+    let currentPage;
+    if (!pageId) {
+      currentPage = 1;
+    } else {
+      currentPage = parseInt(pageId);
+    }
 
     return (
-      <List
-        items={items.results}
-        currentPage={currentPage}
-      />
+      <Fragment>
+        {
+          items.results
+          && (
+            <List
+              items={items.results}
+              currentPage={currentPage}
+              handlePageChange={this.handlePageChange}
+            />
+          )
+        }
+      </Fragment>
     );
   }
 }
+
+ListContainer.propTypes = {
+  match: PropTypes.instanceOf(Object).isRequired,
+  getItems: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   items: state.items.list,

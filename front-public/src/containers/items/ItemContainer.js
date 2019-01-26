@@ -2,39 +2,43 @@ import React, { Component, Fragment } from 'react';
 import Item from '../../components/items/Item';
 
 class ItemContainer extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       item: {}
     };
+
+    this.fetchItem = this.fetchItem.bind(this);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     const { url } = this.props;
-    fetch(url)
-    .then(res => res.json())
-    .then(item =>
-      this.setState( { item })
+    this.fetchItem(url);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({ item: {} });
+    const { url } = newProps;
+    this.fetchItem(url);
+  }
+
+  fetchItem(url) {
+    return (
+      fetch(url)
+        .then(res => res.json())
+        .then(item => this.setState({ item }))
     );
   }
 
-  componentWillReceiveProps(newProps){
-    this.setState({
-      item: newProps.item
-    });
-  }
-
   render() {
-
     const { item } = this.state;
 
     return (
       <Fragment>
         {
-          item &&
-          <Item item={item} />
+          item
+          && <Item item={item} />
         }
       </Fragment>
     );
