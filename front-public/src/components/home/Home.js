@@ -10,6 +10,7 @@ const Home = () => {
         <div className="image"></div>
       </div>
       <Container text textAlign="center">
+        <img src={require("../../images/shop-bag.svg")} alt="shop-bag"/>
         <h1>Poke Market</h1>
         <p>Browse our large list of pokemon items.
           <br />There must be something you want, or will want !
