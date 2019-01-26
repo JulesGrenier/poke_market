@@ -9,7 +9,7 @@ import {
   Popup,
   Input
 } from 'semantic-ui-react';
-import '../../styles/profile/profile.scss';
+import '../../styles/user/profile.scss';
 
 const Profile = () => {
 
@@ -25,18 +25,14 @@ const Profile = () => {
           <Grid.Column width={7}>
             <div className="wallet">
               <span className="wallet-content">
-                {money}
-                <Icon name="money bill alternate outline" />
-                in my wallet
+                You have {money}
+                <img src={require("../../images/pokecoin.svg")} alt="pokecoin" className="pokecoin"/>
               </span>
 
               <Popup
                 trigger={
                   <span className="add-money">
-                    <Icon.Group>
-                      <Icon name='money bill alternate outline' />
-                      <Icon corner='top right' name='add' />
-                    </Icon.Group>
+                    <img src={require("../../images/coin-bag.svg")} alt="coin-bag" className="coin-bag"/>
                   </span>
                 }
                 content={<Input type="number" min="1" placeholder='Money amount...' />}
@@ -50,7 +46,7 @@ const Profile = () => {
               <div className="cart">
                 <Icon name="cart" />
                 <span className="items-count">
-                  {`${itemsCount} ${itemsCount > 1 ? 'items' : 'item'} in my cart`}
+                  {`${itemsCount} ${itemsCount > 1 ? 'items' : 'item'} in your cart`}
                 </span>
               </div>
             </Link>
@@ -72,34 +68,34 @@ const Profile = () => {
             </div>
           </Grid.Column>
           <Grid.Column width={7} style={{marginLeft: "auto"}}>
-            <h3>My Informations</h3>
-            <Form>
+            <h3>Your Informations</h3>
+            <Form autoComplete="off">
               <Form.Field>
-                <label>First Name</label>
-                <input type="text" readOnly />
+                <label htmlFor="firstname">First Name</label>
+                <input name="firstname" id="firstname" type="text" readOnly />
               </Form.Field>
               <Form.Field>
-                <label>Last Name</label>
-                <input type="text" readOnly />
+                <label htmlFor="lastname">Last Name</label>
+                <input name="lastname" id="lastname" type="text" readOnly />
               </Form.Field>
               <Form.Field>
-                <label>Email</label>
-                <input type="email" readOnly />
+                <label htmlFor="email">Email</label>
+                <input name="email" id="email" type="email" readOnly />
               </Form.Field>
               <br />
               <Form.Field>
-                <label>Current Password</label>
-                <input type="password" />
+                <label htmlFor="currentPassword">Current Password</label>
+                <input name="currentPassword" id="currentPassword" type="password" />
               </Form.Field>
               <Form.Field>
-                <label>New Password</label>
-                <input type="password" />
+                <label htmlFor="newPassword">New Password</label>
+                <input name="newPassword" id="newPassword" type="password" />
               </Form.Field>
               <Form.Field>
-                <label>Repeat New Password</label>
-                <input type="password" />
+                <label htmlFor="repeatNewPassword">Repeat New Password</label>
+                <input name="repeatNewPassword" id="repeatNewPassword" type="password" />
               </Form.Field>
-              <Button type='submit'>Submit</Button>
+              <Button type='submit'>Save Changes</Button>
             </Form>
           </Grid.Column>
         </Grid>

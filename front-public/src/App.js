@@ -8,7 +8,7 @@ import HomeContainer from './containers/home/HomeContainer';
 import ListContainer from './containers/items/ListContainer';
 import ItemDetailsContainer from './containers/items/ItemDetailsContainer';
 import CartContainer from './containers/cart/CartContainer';
-import ProfileContainer from './containers/profile/ProfileContainer';
+import ProfileContainer from './containers/user/ProfileContainer';
 import LoginContainer from './containers/user/LoginContainer';
 import RegisterContainer from './containers/user/RegisterContainer';
 import Error404Container from './containers/error404/Error404Container';
