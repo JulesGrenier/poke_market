@@ -3,34 +3,43 @@ import { Link } from 'react-router-dom';
 import { Container, Form, Button, Grid } from 'semantic-ui-react';
 import '../../styles/user/auth.scss';
 
-const Register = () => {
+const Register = ({
+  firstname,
+  lastname,
+  email,
+  password,
+  message,
+  handleChange,
+  handleSubmit
+}) => {
   return (
     <div id="register">
       <Container text textAlign="center">
         <h2>Register</h2>
         <Grid centered>
           <Grid.Column mobile={14} tablet={8} computer={7}>
-            <Form>
+            <Form onSubmit={handleSubmit} autoComplete="off">
               <Form.Field>
-                <label>First Name</label>
-                <input type="text" />
+                <label htmlFor="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" value={firstname} onChange={handleChange} />
               </Form.Field>
               <Form.Field>
-                <label>Last Name</label>
-                <input type="text" />
+                <label htmlFor="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" value={lastname} onChange={handleChange} />
               </Form.Field>
               <Form.Field>
-                <label>Email</label>
-                <input type="email" />
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" id="email" value={email} onChange={handleChange} />
               </Form.Field>
               <Form.Field>
-                <label>Password</label>
-                <input type="password" />
+                <label htmlFor="password">Password</label>
+                <input type="password" name="password" id="password" value={password} onChange={handleChange} />
               </Form.Field>
+              {message && <p className={`msg ${message.type}`}>{message.text}</p>}
               <Button type='submit'>Register</Button>
             </Form>
             <div className="actions">
-              <Link to="/login">{"I already have an account"}</Link>
+              <Link to="/login">I already have an account</Link>
             </div>
           </Grid.Column>
         </Grid>
