@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import '../../styles/navbar/navbar.scss';
 import { Icon } from 'semantic-ui-react';
 
-const toggleNav= () => {
+const toggleNav = () => {
   document.getElementById("nav").classList.toggle("show");
 }
 
@@ -21,7 +21,7 @@ const Navbar = () => {
             exact
             to="/"
             className="nav-link"
-             onClick={() => toggleNav()}
+            onClick={() => toggleNav()}
           >
             Home
           </NavLink>
@@ -30,28 +30,28 @@ const Navbar = () => {
           <NavLink
             to="/browse"
             className="nav-link"
-             onClick={() => toggleNav()}
+            onClick={() => toggleNav()}
           >
             Browse
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/login"
-            className="nav-link btn"
-             onClick={() => toggleNav()}
-          >
-            Login
-          </NavLink>
-        </li>
-        
+
         <li className="user-part">
           <ul>
             <li>
               <NavLink
+                to="/login"
+                className="nav-link btn"
+                onClick={() => toggleNav()}
+              >
+                Login
+            </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/cart"
                 className="nav-link"
-                 onClick={() => toggleNav()}
+                onClick={() => toggleNav()}
               >
                 <Icon name="shopping cart" />
                 Cart
@@ -61,7 +61,7 @@ const Navbar = () => {
               <NavLink
                 to="/profile"
                 className="nav-link"
-                 onClick={() => toggleNav()}
+                onClick={() => toggleNav()}
               >
                 <Icon name="user" />
                 Profile
@@ -70,7 +70,7 @@ const Navbar = () => {
             <li>
               <div
                 className="nav-link btn"
-                 onClick={() => toggleNav()}
+                onClick={() => toggleNav()}
               >
                 <Icon name="log out" />
                 Log out
