@@ -6,7 +6,7 @@ const Error404 = () => {
   return (
     <div id="error-404">
       <Container text textAlign="center">
-        <img src={require('../../images/sad-pikachu.png')} alt="sad pikachy"/>
+        <img src={require('../../images/bellsprout.svg')} alt="bellsprout"/>
         <h2>404</h2>
         <p>The page you are looking for does not exist</p>
       </Container>
