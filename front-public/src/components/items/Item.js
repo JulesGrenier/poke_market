@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import pokecoin from '../../images/pokecoin.svg';
 
 const Item = ({ item }) => {
-
   const {
     sprites,
     name,
@@ -16,33 +17,43 @@ const Item = ({ item }) => {
   return (
     <div className="product">
       {
-        sprites &&
-        <Fragment>
-          <img
-            src={sprites.default}
-            alt={formatedName}
-            className="item-sprite"
-          />
-          <Link to={`/browse/item/${name}`}>
-            <h3 className="item-name">{formatedName}</h3>
-          </Link>
-          <span className="item-cost">
-            {
-              cost > 0
-                ? <span>
-                  {cost}
-                  <img src={require("../../images/pokecoin.svg")} alt="pokecoin" className="pokecoin"/>
+        sprites
+        && (
+          <Fragment>
+            <div className="item-infos">
+              <Link to={`/browse/item/${name}`}>
+                <img
+                  src={sprites.default}
+                  alt={formatedName}
+                  className="item-sprite"
+                />
+                <h3 className="item-name">{formatedName}</h3>
+                <span className="item-cost">
+                  {
+                    cost > 0
+                      ? (
+                        <span>
+                          {cost}
+                          <img src={pokecoin} alt="pokecoin" className="pokecoin" />
+                        </span>
+                      )
+                      : <span className="sold-out">Sold out</span>
+                  }
                 </span>
-                : <span className="sold-out">Sold out</span>
-            }
-          </span>
-          <div className="add-to-cart">
-            <Icon name="add to cart" />
-          </div>
-        </Fragment>
+              </Link>
+            </div>
+            <div className="add-to-cart">
+              <Icon name="add to cart" />
+            </div>
+          </Fragment>
+        )
       }
     </div>
-  )
+  );
+};
+
+Item.propTypes = {
+  item: PropTypes.instanceOf(Object).isRequired
 };
 
 export default Item;
