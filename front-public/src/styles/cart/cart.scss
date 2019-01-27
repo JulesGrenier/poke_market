@@ -68,6 +68,7 @@
           padding: .15rem .25rem;
           border-radius: .25rem;
           cursor: pointer;
+          box-shadow: 0 0 .25rem rgba($black, .2);
           
           &.edit{
             background: rgba($blue, .85);
@@ -75,7 +76,7 @@
 
             &:hover{
               background: $blue;
-              box-shadow: 0 0 .25rem rgba($black, .2);
+              box-shadow: 0 0 .25rem rgba($black, .5);
             }
           }
   
@@ -85,7 +86,7 @@
 
             &:hover{
               background: $red;
-              box-shadow: 0 0 .25rem rgba($black, .2);
+              box-shadow: 0 0 .25rem rgba($black, .5);
             }
           }
 
@@ -95,6 +96,47 @@
 
     }
 
+  }
+
+  .validate-order-btn{
+    display: inline-block;
+    margin-right: .5rem;
+    background: rgba($green, .7);
+    color: $white;
+    box-shadow: 0 0 .25rem rgba($black, .2);
+    padding: .75rem 1rem;
+    border-radius: .25rem;
+
+    &:hover{
+      background: rgba($green, .85);
+      box-shadow: 0 0 .25rem rgba($black, .5);
+    }
+
+    &:focus{
+      background: $green;
+      box-shadow: 0 0 .5rem rgba($black, .65);
+
+    }
+  }
+
+  .empty-cart-btn{
+    display: inline-block;
+    background: rgba($red, .7);
+    color: $white;
+    box-shadow: 0 0 .25rem rgba($black, .2);
+    padding: .75rem 1rem;
+    border-radius: .25rem;
+
+    &:hover{
+      background: rgba($red, .85);
+      box-shadow: 0 0 .25rem rgba($black, .5);
+    }
+
+    &:focus{
+      background: $red;
+      box-shadow: 0 0 .5rem rgba($black, .65);
+
+    }
   }
 
 }
