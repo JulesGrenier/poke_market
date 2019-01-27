@@ -17,6 +17,7 @@ class ListContainer extends Component {
 
   componentWillMount() {
     document.title = 'Browse';
+    window.scroll(0, 0);
 
     const {
       match,
@@ -43,6 +44,7 @@ class ListContainer extends Component {
     this.setState({ items: {} });
     const { getItems } = this.props;
     getItems(page);
+    window.scroll(0, 0);
   }
 
   render() {

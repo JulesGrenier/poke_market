@@ -18,6 +18,7 @@ class ProfileContainer extends Component {
 
   componentWillMount(){
     document.title = "My Profile";
+    window.scroll(0, 0);
   }
 
   render() {

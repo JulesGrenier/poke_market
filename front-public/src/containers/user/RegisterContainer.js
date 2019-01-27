@@ -21,6 +21,7 @@ class RegisterContainer extends Component {
 
   componentWillMount() {
     document.title = "Register";
+    window.scroll(0, 0);
   }
 
   handleChange(e) {

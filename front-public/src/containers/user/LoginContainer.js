@@ -19,6 +19,7 @@ class LoginContainer extends Component {
 
   componentWillMount(){
     document.title = "Login";
+    window.scroll(0, 0);
   }
 
   handleChange(e){
