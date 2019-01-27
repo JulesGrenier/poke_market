@@ -13,16 +13,23 @@
   .menu-toggler{
     text-transform: uppercase;
     display: none;
+    border: none;
+    background: transparent;
     color: $white;
     cursor: pointer;
     text-align: center;
     padding: .5rem .75rem;
     letter-spacing: 1px;
     font-weight: 600;
+    width: 100%;
 
     &:hover{      
       color: $red;
       background: rgba($white, .05);
+    }
+
+    &:focus{
+      outline: none;
     }
 
   }
@@ -64,10 +71,15 @@
         &.btn{
           background: rgba($red, .8);
           cursor: pointer;
+          border: none;
 
           &:hover,&.active{
             background: $red;
             color: $white;
+          }
+
+          &:focus{
+            outline: none;
           }
         }
 

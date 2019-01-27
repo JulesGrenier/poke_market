@@ -3,16 +3,15 @@ import axios from 'axios';
 import Register from '../../components/user/Register';
 
 class RegisterContainer extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-      message: ""
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: '',
+      message: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,7 +19,7 @@ class RegisterContainer extends Component {
   }
 
   componentWillMount() {
-    document.title = "Register";
+    document.title = 'Register';
     window.scroll(0, 0);
   }
 
@@ -44,8 +43,8 @@ class RegisterContainer extends Component {
     if (firstname.length < 1) {
       this.setState({
         message: {
-          text: "You need to provide your first name",
-          type: "error"
+          text: 'You need to provide your first name',
+          type: 'error'
         }
       });
       return null;
@@ -53,8 +52,8 @@ class RegisterContainer extends Component {
     if (lastname.length < 1) {
       this.setState({
         message: {
-          text: "You need to provide your last name",
-          type: "error"
+          text: 'You need to provide your last name',
+          type: 'error'
         }
       });
       return null;
@@ -62,8 +61,8 @@ class RegisterContainer extends Component {
     if (email.length < 1) {
       this.setState({
         message: {
-          text: "You need to provide an email address",
-          type: "error"
+          text: 'You need to provide an email address',
+          type: 'error'
         }
       });
       return null;
@@ -71,24 +70,26 @@ class RegisterContainer extends Component {
     if (password.length < 1) {
       this.setState({
         message: {
-          text: "You need to provide a password",
-          type: "error"
+          text: 'You need to provide a password',
+          type: 'error'
         }
       });
       return null;
     }
 
-    axios.post("http://localhost:4000/api/users/register", {
+    axios.post('http://localhost:4000/api/users/register', {
       firstname,
       lastname,
       email,
       password
     })
-    .then(res => {
-      this.setState({ message: res.data.message})
-    })
+      .then(res => {
+        this.setState({ message: res.data.message });
+      });
 
-    this.props.history.push('/api/login');
+    const { history } = this.props;
+
+    return history.push('/api/login');
   }
 
   render() {

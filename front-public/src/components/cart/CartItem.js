@@ -6,12 +6,19 @@ import {
   Popup,
   Input
 } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import pokecoin from '../../images/pokecoin.svg';
 
-const CartItem = ({ sprite, name, formatedName, cost, quantity }) => {
-
-  sprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png";
-  name = "poke-ball";
-  formatedName = "Poke Ball";
+const CartItem = ({
+  sprite,
+  name,
+  formatedName,
+  cost,
+  quantity
+}) => {
+  sprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png';
+  name = 'poke-ball';
+  formatedName = 'Poke Ball';
   cost = 1000;
   quantity = 10;
 
@@ -30,20 +37,22 @@ const CartItem = ({ sprite, name, formatedName, cost, quantity }) => {
           <Grid.Column width={3}>
             <span className="item-cost">
               {cost}
-              <img src={require("../../images/pokecoin.svg")} alt="pokecoin" className="pokecoin"/>
+              <img src={pokecoin} alt="pokecoin" className="pokecoin" />
             </span>
           </Grid.Column>
           <Grid.Column width={7}>
             <div className="actions">
               <Popup
                 trigger={
-                  <span className="edit">
-                    <Icon name="pencil" />
-                  </span>
+                  (
+                    <span className="edit">
+                      <Icon name="pencil" />
+                    </span>
+                  )
                 }
                 content={<Input label="amount" type="number" max={10} min={1} />}
-                on='click'
-                position='top right'
+                on="click"
+                position="top right"
               />
 
               <span className="cancel">
@@ -55,6 +64,14 @@ const CartItem = ({ sprite, name, formatedName, cost, quantity }) => {
       </Grid>
     </div>
   );
+};
+
+CartItem.propTypes = {
+  sprite: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  formatedName: PropTypes.string.isRequired,
+  cost: PropTypes.string.isRequired,
+  quantity: PropTypes.string.isRequired
 };
 
 export default CartItem;

@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import '../../styles/items/pagination.scss';
 
 const Pagination = ({ currentPage, handlePageChange }) => {
-  const prev = parseInt(currentPage) - 1;
-  const next = parseInt(currentPage) + 1;
+  const prev = parseInt(currentPage, 0) - 1;
+  const next = parseInt(currentPage, 0) + 1;
 
   return (
     <div id="pagination">

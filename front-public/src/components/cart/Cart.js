@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Icon, Grid } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 import CartItem from './CartItem';
 import '../../styles/cart/cart.scss';
 
@@ -28,5 +29,9 @@ const Cart = ({ items }) => (
     </Container>
   </div>
 );
+
+Cart.propTypes = {
+  items: PropTypes.instanceOf(Array).isRequired
+};
 
 export default Cart;

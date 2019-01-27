@@ -10,9 +10,10 @@ import {
   Input
 } from 'semantic-ui-react';
 import '../../styles/user/profile.scss';
+import pokecoin from '../../images/pokecoin.svg';
+import coinBag from '../../images/coin-bag.svg';
 
 const Profile = () => {
-
   const itemsCount = 10;
   const money = 99999;
 
@@ -26,18 +27,20 @@ const Profile = () => {
             <div className="wallet">
               <span className="wallet-content">
                 You have {money}
-                <img src={require("../../images/pokecoin.svg")} alt="pokecoin" className="pokecoin"/>
+                <img src={pokecoin} alt="pokecoin" className="pokecoin" />
               </span>
 
               <Popup
                 trigger={
-                  <span className="add-money">
-                    <img src={require("../../images/coin-bag.svg")} alt="coin-bag" className="coin-bag"/>
-                  </span>
+                  (
+                    <span className="add-money">
+                      <img src={coinBag} alt="coin-bag" className="coin-bag" />
+                    </span>
+                  )
                 }
-                content={<Input type="number" min="1" placeholder='Money amount...' />}
-                on='click'
-                position='top right'
+                content={<Input type="number" min="1" placeholder="Money amount..." />}
+                on="click"
+                position="top right"
               />
 
             </div>
@@ -67,7 +70,7 @@ const Profile = () => {
               </ul>
             </div>
           </Grid.Column>
-          <Grid.Column width={7} style={{marginLeft: "auto"}}>
+          <Grid.Column width={7} style={{ marginLeft: 'auto' }}>
             <h3>Your Informations</h3>
             <Form autoComplete="off">
               <Form.Field>
@@ -95,7 +98,7 @@ const Profile = () => {
                 <label htmlFor="repeatNewPassword">Repeat New Password</label>
                 <input name="repeatNewPassword" id="repeatNewPassword" type="password" />
               </Form.Field>
-              <Button type='submit'>Save Changes</Button>
+              <Button type="submit">Save Changes</Button>
             </Form>
           </Grid.Column>
         </Grid>
