@@ -9,7 +9,7 @@ const ItemDetails = ({ item }) => {
     name,
     description,
     stock,
-    category,
+    category_name,
     price,
     picture
   } = item;
@@ -39,8 +39,8 @@ const ItemDetails = ({ item }) => {
                 <div className="detail item-category">
                   <span className="label">Category</span>
                   {
-                    category
-                    && <p className="desc">{category}</p>
+                    category_name
+                    && <p className="desc">{category_name}</p>
                   }
                 </div>
 

@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
   if (!offset) {
     offset = 0;
   }
-  connection.queryAsync(`SELECT * FROM products ORDER BY name LIMIT ${limit} OFFSET ${offset}`)
+  connection.queryAsync(`SELECT products.*, categories.name AS category_name, categories.slug AS category_slug FROM products JOIN categories ON categories.id = category_id ORDER BY products.name LIMIT ${limit} OFFSET ${offset}`)
     .then((results) => {
       res.status(200).json({
         results
@@ -38,10 +38,10 @@ router.get('/:info', (req, res) => {
   let query = '';
 
   if (parseInt(info) + 1) {
-    query = 'SELECT * FROM products WHERE id = ?';
+    query = 'SELECT products.*, categories.name AS category_name, categories.slug AS category_slug FROM products JOIN categories ON categories.id = category_id WHERE products.id = ? ORDER BY products.name';
   }
   else {
-    query = 'SELECT * FROM products WHERE slug = ?' ;
+    query = 'SELECT products.*, categories.name AS category_name, categories.slug AS category_slug FROM products JOIN categories ON categories.id = category_id WHERE products.slug = ? ORDER BY products.name' ;
   }
 
   connection.queryAsync(query, [info])

@@ -2,8 +2,7 @@ CREATE TABLE `products`(
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR (225),
   `slug` VARCHAR (225),
-  `category` VARCHAR (225),
-  `category_slug` VARCHAR (225),
+  `category_id` INT,
   `description` TEXT,
   `picture` TEXT,
   `price` INT,
@@ -11,7 +10,14 @@ CREATE TABLE `products`(
   `create_at` DATETIME DEFAULT CURRENT_TIMESTAMP()
 );
 
+CREATE TABLE `categories`(
+  `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `name` VARCHAR(225),
+  `slug` VARCHAR(225)
+);
+
 CREATE TABLE `users`(
+  `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `firstname` VARCHAR(225),
   `lastname` VARCHAR(225),
   `email` VARCHAR(225),
@@ -48,6 +54,9 @@ CREATE TABLE `order_products`(
 
 ALTER TABLE `users`
   ADD CONSTRAINT `uc_email` UNIQUE (`email`);
+
+ALTER TABLE `products`
+  ADD CONSTRAINT `fk_category_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)  ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE `carts`
   ADD CONSTRAINT `fk_user_cart` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)  ON UPDATE CASCADE ON DELETE CASCADE;

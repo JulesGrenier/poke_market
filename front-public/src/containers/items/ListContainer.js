@@ -55,7 +55,7 @@ class ListContainer extends Component {
     if (!pageId) {
       currentPage = 1;
     } else {
-      currentPage = parseInt(pageId);
+      currentPage = parseInt(pageId, 0);
     }
 
     return (
