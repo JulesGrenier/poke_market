@@ -20,16 +20,28 @@
   
   }
 
-  .detail{
-    margin-bottom: 3rem;
-  }
+  .body{
+    background: $white;
+    box-shadow: 0 0 .5rem rgba($black, .2);
 
-  .label{
-    display: inline-block;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: .5rem;
-    color: inherit;
+    .item-infos{
+      padding-bottom: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+
+      .detail{
+        margin-bottom: 2rem;
+      }
+    
+      .label{
+        display: inline-block;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+        color: inherit;
+        letter-spacing: .05rem;
+      }
+    }
   }
 
 }

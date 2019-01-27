@@ -32,22 +32,26 @@ const ItemDetails = ({ item }) => {
               }
             </div>
 
-            <ActionBar price={price} stock={stock} />
+            <div className="body">
+              <ActionBar price={price} stock={stock} />
 
-            <div className="detail item-category">
-              <span className="label">Category</span>
-              {
-                category
-                && <p className="desc">{category}</p>
-              }
-            </div>
+              <div className="item-infos">
+                <div className="detail item-category">
+                  <span className="label">Category</span>
+                  {
+                    category
+                    && <p className="desc">{category}</p>
+                  }
+                </div>
 
-            <div className="detail item-desc">
-              <span className="label">Description</span>
-              {
-                description
-                && <p className="desc">{description}</p>
-              }
+                <div className="detail item-desc">
+                  <span className="label">Description</span>
+                  {
+                    description
+                    && <p className="desc">{description}</p>
+                  }
+                </div>
+              </div>
             </div>
           </div>
         )
