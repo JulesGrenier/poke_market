@@ -35,12 +35,7 @@ class ItemContainer extends Component {
     const { item } = this.state;
 
     return (
-      <Fragment>
-        {
-          item
-          && <Item item={item} />
-        }
-      </Fragment>
+      <Item item={item} />
     );
   }
 }

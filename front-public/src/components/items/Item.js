@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Placeholder } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import pokecoin from '../../images/pokecoin.svg';
 
@@ -13,6 +13,16 @@ const Item = ({ item }) => {
 
   let formatedName;
   if (name) formatedName = name.split('-').map(part => part.replace(part.charAt(0), part.charAt(0).toUpperCase())).join(' ');
+
+  if (!Object.keys(item).length) {
+    return (
+      <div className="product">
+        <Placeholder style={{ height: '150px', width: '100%' }}>
+          <Placeholder.Image />
+        </Placeholder>
+      </div>
+    );
+  }
 
   return (
     <div className="product">
