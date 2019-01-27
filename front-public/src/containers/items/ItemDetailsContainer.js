@@ -12,13 +12,12 @@ class ItemDetailsContainer extends Component {
 
   componentWillMount() {
     const { match } = this.props;
-    const { name } = match.params;
-    fetch(`https://pokeapi.co/api/v2/item/${name}`)
+    const { slug } = match.params;
+    fetch(`http://localhost:4000/api/products/${slug}`)
       .then(res => res.json())
-      .then(item => {
-        const formatedName = name.split('-').map(part => part.replace(part.charAt(0), part.charAt(0).toUpperCase())).join(' ');
-        document.title = formatedName;
-        item.name = formatedName;
+      .then(data => {
+        const item = data.results[0];
+        document.title = item.name;
         this.setState({ item });
       });
   }

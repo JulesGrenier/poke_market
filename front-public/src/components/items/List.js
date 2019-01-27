@@ -28,7 +28,7 @@ const List = ({
             items
             && items.map((item, i) => (
               <Grid.Column key={i} mobile={8} tablet={5} computer={4}>
-                <ItemContainer {...item} />
+                <ItemContainer item={item} />
               </Grid.Column>
             ))
           }

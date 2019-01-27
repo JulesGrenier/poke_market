@@ -6,7 +6,7 @@ import {
 
 export const getItems = (pageToFetch) => dispatch => {
   const offset = pageToFetch <= 1 ? 0 : pageToFetch * 20;
-  fetch(`https://pokeapi.co/api/v2/item/?offset=${offset}&limit=20`)
+  fetch(`http://localhost:4000/api/products/?offset=${offset}&limit=20`)
     .then(res => res.json())
     .then(items => dispatch({
       type: GET_ITEMS,

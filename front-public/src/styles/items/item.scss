@@ -37,11 +37,6 @@
     .item-cost{
       color: $black;
   
-      .sold-out{
-        color: $red;
-        text-transform: uppercase;
-      }
-  
       .pokedollar{
         width: 9px;
       }
@@ -58,6 +53,18 @@
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
     border: .15rem solid rgba($black, .5);
+  
+    &.sold-out{
+      cursor: default;
+      background: $red;
+      text-transform: uppercase;
+      font-weight: 600;
+
+      &:hover{
+        background: $red;
+        border-color: transparent;
+      }
+    }
 
     &:hover{
       background: $blue;

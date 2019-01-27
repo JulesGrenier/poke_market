@@ -8,27 +8,15 @@ class ItemContainer extends Component {
     this.state = {
       item: {}
     };
-
-    this.fetchItem = this.fetchItem.bind(this);
   }
 
   componentWillMount() {
-    const { url } = this.props;
-    this.fetchItem(url);
+    const { item } = this.props;
+    this.setState({ item });
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({ item: {} });
-    const { url } = newProps;
-    this.fetchItem(url);
-  }
-
-  fetchItem(url) {
-    return (
-      fetch(url)
-        .then(res => res.json())
-        .then(item => this.setState({ item }))
-    );
+    this.setState({ item: newProps.item });
   }
 
   render() {

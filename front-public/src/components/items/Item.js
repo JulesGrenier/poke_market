@@ -6,13 +6,12 @@ import pokecoin from '../../images/pokecoin.svg';
 
 const Item = ({ item }) => {
   const {
-    sprites,
     name,
-    cost
+    slug,
+    picture,
+    price,
+    stock,
   } = item;
-
-  let formatedName;
-  if (name) formatedName = name.split('-').map(part => part.replace(part.charAt(0), part.charAt(0).toUpperCase())).join(' ');
 
   if (!Object.keys(item).length) {
     return (
@@ -27,34 +26,30 @@ const Item = ({ item }) => {
   return (
     <div className="product">
       {
-        sprites
+        picture
         && (
           <Fragment>
             <div className="item-infos">
-              <Link to={`/browse/item/${name}`}>
+              <Link to={`/browse/item/${slug}`}>
                 <img
-                  src={sprites.default}
-                  alt={formatedName}
+                  src={picture}
+                  alt={name}
                   className="item-sprite"
                 />
-                <h3 className="item-name">{formatedName}</h3>
+                <h3 className="item-name">{name}</h3>
                 <span className="item-cost">
-                  {
-                    cost > 0
-                      ? (
-                        <span>
-                          {cost}
-                          <img src={pokecoin} alt="pokecoin" className="pokecoin" />
-                        </span>
-                      )
-                      : <span className="sold-out">Sold out</span>
-                  }
+                  <span>
+                    {price}
+                    <img src={pokecoin} alt="pokecoin" className="pokecoin" />
+                  </span>
                 </span>
               </Link>
             </div>
-            <div className="add-to-cart">
-              <Icon name="add to cart" />
-            </div>
+            {
+              stock > 0
+                ? <div className="add-to-cart"><Icon name="add to cart" /></div>
+                : <div className="add-to-cart sold-out"><span className="sold-out">Sold out</span></div>
+            }
           </Fragment>
         )
       }

@@ -25,7 +25,7 @@ class App extends Component {
               <Route exact path="(/|/home)" render={(props) => <HomeContainer {...props} />} />
               <Route exact path="/browse" render={(props) => <ListContainer {...props} />} />
               <Route exact path="/browse/:pageId" render={(props) => <ListContainer {...props} />} />
-              <Route exact path="/browse/item/:name" render={(props) => <ItemDetailsContainer {...props} />} />
+              <Route exact path="/browse/item/:slug" render={(props) => <ItemDetailsContainer {...props} />} />
               <Route exact path="/cart" render={(props) => <CartContainer {...props} />} />
               <Route exact path="/profile" render={(props) => <ProfileContainer {...props} />} />
               <Route exact path="/login" render={(props) => <LoginContainer {...props} />} />

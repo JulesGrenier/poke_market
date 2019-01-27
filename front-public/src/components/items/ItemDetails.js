@@ -7,16 +7,12 @@ import ActionBar from './ActionBar';
 const ItemDetails = ({ item }) => {
   const {
     name,
-    effect_entries,
+    description,
+    stock,
     category,
-    cost,
-    sprites
+    price,
+    picture
   } = item;
-
-  const stock = 10;
-
-  let formatedCatego;
-  if (category) formatedCatego = category.name.split('-').map(part => part.replace(part.charAt(0), part.charAt(0).toUpperCase())).join(' ');
 
   return (
     <Container text>
@@ -26,9 +22,9 @@ const ItemDetails = ({ item }) => {
           <div className="item-details">
             <div className="header">
               {
-                sprites
+                picture
                 && name
-                && <img src={sprites.default} alt={name} className="item-sprite" />
+                && <img src={picture} alt={name} className="item-sprite" />
               }
               {
                 name
@@ -36,21 +32,21 @@ const ItemDetails = ({ item }) => {
               }
             </div>
 
-            <ActionBar cost={cost} stock={stock} />
+            <ActionBar price={price} stock={stock} />
 
             <div className="detail item-category">
               <span className="label">Category</span>
               {
                 category
-                && <p className="desc">{formatedCatego}</p>
+                && <p className="desc">{category}</p>
               }
             </div>
 
             <div className="detail item-desc">
               <span className="label">Description</span>
               {
-                effect_entries
-                && <p className="desc">{effect_entries[0].effect}</p>
+                description
+                && <p className="desc">{description}</p>
               }
             </div>
           </div>
