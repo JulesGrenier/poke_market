@@ -1,5 +1,17 @@
-CREATE TABLE `users`(
+CREATE TABLE `products`(
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `name` VARCHAR (225),
+  `slug` VARCHAR (225),
+  `category` VARCHAR (225),
+  `category_slug` VARCHAR (225),
+  `description` TEXT,
+  `picture` TEXT,
+  `price` INT,
+  `stock` INT,
+  `create_at` DATETIME DEFAULT CURRENT_TIMESTAMP()
+);
+
+CREATE TABLE `users`(
   `firstname` VARCHAR(225),
   `lastname` VARCHAR(225),
   `email` VARCHAR(225),
