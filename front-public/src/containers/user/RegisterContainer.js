@@ -11,16 +11,27 @@ class RegisterContainer extends Component {
       lastname: '',
       email: '',
       password: '',
-      message: ''
+      message: {}
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkUserToken = this.checkUserToken.bind(this);
   }
 
   componentWillMount() {
     document.title = 'Register';
     window.scroll(0, 0);
+    this.checkUserToken();
+  }
+
+  checkUserToken() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const { history } = this.props;
+      return history.push('/profile');
+    }
+    return null;
   }
 
   handleChange(e) {
@@ -77,7 +88,7 @@ class RegisterContainer extends Component {
       return null;
     }
 
-    axios.post('http://localhost:4000/api/users/register', {
+    axios.post('http://localhost:4000/auth/register', {
       firstname,
       lastname,
       email,
@@ -85,11 +96,22 @@ class RegisterContainer extends Component {
     })
       .then(res => {
         this.setState({ message: res.data.message });
+      })
+      .catch(error => {
+        const { message } = error.response.data;
+        this.setState({ message });
       });
+
+    this.setState({
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: ''
+    });
 
     const { history } = this.props;
 
-    return history.push('/api/login');
+    return history.push('/welcome');
   }
 
   render() {

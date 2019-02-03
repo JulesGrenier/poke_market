@@ -1,0 +1,27 @@
+@import '../colors.scss';
+
+#welcome{
+
+  img{
+    display: inline-block;
+    width: 250px;
+    max-width: 100%;
+  }
+
+  h2{
+    color: $red;
+    font-size: 7rem;
+    text-shadow: 0 0 1rem rgba($black, .5);
+  }
+
+  p{
+    font-size: 2rem;
+  }
+
+  a{
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

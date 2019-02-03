@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,8 +11,9 @@ import CartContainer from './containers/cart/CartContainer';
 import ProfileContainer from './containers/user/ProfileContainer';
 import LoginContainer from './containers/user/LoginContainer';
 import RegisterContainer from './containers/user/RegisterContainer';
+import WelcomeContainer from './containers/user/WelcomeContainer';
 import Error404Container from './containers/error404/Error404Container';
-import Navbar from './components/navbar/Navbar';
+import NavbarLayout from './layout/NavbarLayout';
 
 class App extends Component {
   render() {
@@ -20,17 +21,116 @@ class App extends Component {
       <div className="app">
         <Router>
           <main>
-            <Navbar />
             <Switch>
-              <Route exact path="(/|/home)" render={(props) => <HomeContainer {...props} />} />
-              <Route exact path="/browse" render={(props) => <ListContainer {...props} />} />
-              <Route exact path="/browse/:pageId" render={(props) => <ListContainer {...props} />} />
-              <Route exact path="/browse/item/:slug" render={(props) => <ItemDetailsContainer {...props} />} />
-              <Route exact path="/cart" render={(props) => <CartContainer {...props} />} />
-              <Route exact path="/profile" render={(props) => <ProfileContainer {...props} />} />
-              <Route exact path="/login" render={(props) => <LoginContainer {...props} />} />
-              <Route exact path="/register" render={(props) => <RegisterContainer {...props} />} />
-              <Route path="/" render={(props) => <Error404Container {...props} />} />
+              <Route
+                exact
+                path="(/|/home)"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <HomeContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                exact
+                path="/browse"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <ListContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                exact
+                path="/browse/:pageId"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <ListContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                exact
+                path="/browse/item/:slug"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <ItemDetailsContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                exact
+                path="/cart"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <CartContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                exact
+                path="/profile"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <ProfileContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                exact
+                path="/login"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <LoginContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                exact
+                path="/register"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <RegisterContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                exact
+                path="/welcome"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <WelcomeContainer {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
+              <Route
+                path="/"
+                render={(props) => (
+                  <Fragment>
+                    <NavbarLayout {...props}>
+                      <Error404Container {...props} />
+                    </NavbarLayout>
+                  </Fragment>
+                )}
+              />
             </Switch>
           </main>
         </Router>

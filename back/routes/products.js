@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const connection = require('../config');
+const { connection } = require('../config');
 
 router.use(function timeLog (req, res, next) {
   console.log('Time:', Date.now(), `(request to products)`);

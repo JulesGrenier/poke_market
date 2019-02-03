@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Container,
   Form,
@@ -13,9 +14,17 @@ import '../../styles/user/profile.scss';
 import pokecoin from '../../images/pokecoin.svg';
 import coinBag from '../../images/coin-bag.svg';
 
-const Profile = () => {
+const Profile = ({
+  user,
+  newEmail,
+  currentPassword,
+  newPassword,
+  newPasswordConf,
+  handleChange,
+  handleSubmit,
+  message
+}) => {
   const itemsCount = 10;
-  const money = 99999;
 
   return (
     <div id="profile">
@@ -26,7 +35,7 @@ const Profile = () => {
           <Grid.Column width={7}>
             <div className="wallet">
               <span className="wallet-content">
-                You have {money}
+                {user.money}
                 <img src={pokecoin} alt="pokecoin" className="pokecoin" />
               </span>
 
@@ -49,7 +58,7 @@ const Profile = () => {
               <div className="cart">
                 <Icon name="cart" />
                 <span className="items-count">
-                  {`${itemsCount} ${itemsCount > 1 ? 'items' : 'item'} in your cart`}
+                  {`${itemsCount} ${itemsCount > 1 ? 'items' : 'item'}`}
                 </span>
               </div>
             </Link>
@@ -71,40 +80,91 @@ const Profile = () => {
             </div>
           </Grid.Column>
           <Grid.Column width={7} style={{ marginLeft: 'auto' }}>
-            <h3>Your Informations</h3>
-            <Form autoComplete="off">
+            <h3>Account Informations</h3>
+            <Form autoComplete="off" onSubmit={handleSubmit}>
               <Form.Field>
-                <label htmlFor="firstname">First Name</label>
-                <input name="firstname" id="firstname" type="text" readOnly />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor="lastname">Last Name</label>
-                <input name="lastname" id="lastname" type="text" readOnly />
+                <label htmlFor="name">Name</label>
+                <input
+                  name="name"
+                  id="name"
+                  type="text"
+                  value={`${user.firstname} ${user.lastname}`}
+                  readOnly
+                />
               </Form.Field>
               <Form.Field>
                 <label htmlFor="email">Email</label>
-                <input name="email" id="email" type="email" readOnly />
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  value={user.email}
+                  readOnly
+                />
               </Form.Field>
-              <br />
+              <Form.Field>
+                <label htmlFor="newEmail">New Email</label>
+                <input
+                  name="newEmail"
+                  id="newEmail"
+                  type="email"
+                  value={newEmail}
+                  onChange={handleChange}
+                />
+              </Form.Field>
               <Form.Field>
                 <label htmlFor="currentPassword">Current Password</label>
-                <input name="currentPassword" id="currentPassword" type="password" />
+                <input
+                  name="currentPassword"
+                  id="currentPassword"
+                  type="password"
+                  value={currentPassword}
+                  onChange={handleChange}
+                />
               </Form.Field>
               <Form.Field>
                 <label htmlFor="newPassword">New Password</label>
-                <input name="newPassword" id="newPassword" type="password" />
+                <input
+                  name="newPassword"
+                  id="newPassword"
+                  type="password"
+                  value={newPassword}
+                  onChange={handleChange}
+                />
               </Form.Field>
               <Form.Field>
-                <label htmlFor="repeatNewPassword">Repeat New Password</label>
-                <input name="repeatNewPassword" id="repeatNewPassword" type="password" />
+                <label htmlFor="newPasswordConf">Repeat New Password</label>
+                <input
+                  name="newPasswordConf"
+                  id="newPasswordConf"
+                  type="password"
+                  value={newPasswordConf}
+                  onChange={handleChange}
+                />
               </Form.Field>
+              <p className={`msg ${message.type}`}>{message.text}</p>
               <Button type="submit">Save Changes</Button>
             </Form>
+            <div>
+              <h3>Account Deletion</h3>
+              <Link to="/" className="acc-deletion">Delete My Account</Link>
+            </div>
           </Grid.Column>
         </Grid>
       </Container>
     </div>
   );
+};
+
+Profile.propTypes = {
+  user: PropTypes.instanceOf(Object).isRequired,
+  newEmail: PropTypes.string.isRequired,
+  currentPassword: PropTypes.string.isRequired,
+  newPassword: PropTypes.string.isRequired,
+  newPasswordConf: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  message: PropTypes.instanceOf(Object).isRequired
 };
 
 export default Profile;

@@ -14,11 +14,22 @@ class LoginContainer extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkUserToken = this.checkUserToken.bind(this);
   }
 
   componentWillMount() {
     document.title = 'Login';
     window.scroll(0, 0);
+    this.checkUserToken();
+  }
+
+  checkUserToken() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const { history } = this.props;
+      return history.push('/profile');
+    }
+    return null;
   }
 
   handleChange(e) {
@@ -45,19 +56,26 @@ class LoginContainer extends Component {
       return null;
     }
 
-    axios.post('http://localhost:4000/api/users/login', {
+    return axios.post('http://localhost:4000/auth/login', {
       email,
       password
     })
       .then(res => {
-        this.setState({ message: res.data.message });
-      })
-      .catch(error => this.setState({
-        message: error.message.text,
-        type: error.message.type
-      }));
+        const { message, token } = res.data;
+        this.setState({ message });
 
-    return null;
+        if (token) {
+          localStorage.setItem('token', token);
+          setTimeout(() => {
+            const { history } = this.props;
+            return history.push('/profile');
+          }, 500);
+        }
+      })
+      .catch(error => {
+        const { message } = error.response.data;
+        this.setState({ message });
+      });
   }
 
   render() {

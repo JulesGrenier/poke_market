@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 
 const cors = require('cors');
@@ -7,7 +6,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const products = require('./routes/products');
-const users = require('./routes/users');
+const auth = require('./routes/auth');
 const carts = require('./routes/carts');
 const orders = require('./routes/orders');
 
@@ -18,7 +17,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname  +  '/public'));
 
 app.use('/api/products', products);
-app.use('/api/users', users);
+app.use('/auth', auth);
 app.use('/api/carts', carts);
 app.use('/api/orders', orders);
 

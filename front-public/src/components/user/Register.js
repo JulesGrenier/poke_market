@@ -57,7 +57,7 @@ Register.propTypes = {
   lastname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
+  message: PropTypes.instanceOf(Object).isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired
 };

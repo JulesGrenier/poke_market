@@ -47,12 +47,11 @@
 
   .add-to-cart{
     padding: .4rem 0;
-    background: rgba($blue, .8);
+    background: rgba($red, .95);
     color: $white;
     cursor: pointer;
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
-    border: .15rem solid rgba($black, .5);
   
     &.sold-out{
       cursor: default;
@@ -62,13 +61,11 @@
 
       &:hover{
         background: $red;
-        border-color: transparent;
       }
     }
 
     &:hover{
-      background: $blue;
-      border-color: transparent;
+      background: $red;
     }
   }
 
